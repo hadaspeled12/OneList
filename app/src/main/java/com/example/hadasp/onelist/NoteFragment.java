@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class NoteFragment extends Fragment  implements NoteAdapter.NotesAdapterInteraction {
+public class NoteFragment extends Fragment implements NoteAdapter.NotesAdapterInteraction {
 
     public NoteFragment() {
         // Required empty public constructor
@@ -84,8 +84,8 @@ public class NoteFragment extends Fragment  implements NoteAdapter.NotesAdapterI
     @Override
     public void onUpdateNote(Note note) {
         AppDatabase.getInstance(getContext()).noteDao().updateNote(note);
+        MainActivity.updateUi(getFragmentManager(), getContext());
     }
-
 
     public List<Note> getNoteList() {
         switch (mPosition){

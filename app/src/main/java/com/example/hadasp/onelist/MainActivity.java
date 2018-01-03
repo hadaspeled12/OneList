@@ -1,5 +1,7 @@
 package com.example.hadasp.onelist;
 
+import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -17,11 +19,11 @@ import android.widget.ScrollView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private RadioGroup radioGroupAddNote;
     private ScrollView scrollViewAddNote;
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +61,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         AppDatabase.destroyInstance();
         super.onDestroy();
+    }
+
+    public static void updateUi(android.support.v4.app.FragmentManager fragmentManager, Context context ) {
+        viewPager.setAdapter(new CategoryAdapter(fragmentManager,
+                context));
+
+
     }
 }
