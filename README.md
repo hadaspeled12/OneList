@@ -5,4 +5,3 @@ When adding a task one can pick multiple categories that the new note will be re
 
 to do :
 - add pictures to the README
-- fix bug to synchronize the fragments.
